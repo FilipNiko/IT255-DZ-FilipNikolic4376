@@ -1,0 +1,50 @@
+<div class="col-xl-6 col-lg-8 col-md-9 col-11 mx-auto mt-5 text-center">
+  <div class="card">
+    <h5 class="text-center mb-4">Dodavanje novog leta</h5>
+    <form class="row g-3">
+      <div class="form-group col-md-4">
+        <label for="aerodrom">Polazni aerodrom</label>
+        <input type="text" class="form-control" id="aerodrom" placeholder="Polazni Aerodrom" #aerodrom>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="sifraLeta">Šifra leta</label>
+        <input type="text" class="form-control" id="sifraLeta" placeholder="Šifra leta" #sifraLeta>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="destinacija">Destinacija</label>
+        <input type="text" class="form-control" id="destinacija" placeholder="Destinacija" #destinacija>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="polazak">Vreme polaska</label>
+        <input type="datetime-local" class="form-control" id="polazak" placeholder="Vreme polaska" #polazak>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="dolazak">Očekivano vreme dolaska</label>
+        <input type="datetime-local" class="form-control" id="dolazak" placeholder="Vreme dolaska" #dolazak>
+      </div>
+      <div class="col-12">
+        <button (click)="dodajLet(aerodrom, sifraLeta, destinacija, polazak, dolazak)" type="submit"
+          class="btn btn-primary">Potvrdi</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div class="col-xl-6 col-lg-8 col-md-9 col-11 mx-auto mt-5">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Šifra leta</th>
+        <th>Polazni aerodrom</th>
+        <th>Destinacija</th>
+        <th>Vreme polaska</th>
+        <th>Očekivano vreme dolaska</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr app-let-row *ngFor="let leet of letovi" [leet]="leet">
+      </tr>
+    </tbody>
+  </table>
+</div>
