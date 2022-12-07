@@ -1,0 +1,17 @@
+<h5 class="text-primary text-center">Preporuka: Letovi iz Niša</h5>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Šifra leta</th>
+      <th>Polazni aerodrom</th>
+      <th>Destinacija</th>
+      <th>Vreme polaska</th>
+      <th>Očekivano vreme dolaska</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr app-let-row *ngFor="let leet of filterLetova('Konstantin Veliki')" [leet]="leet">
+    </tr>
+  </tbody>
+</table>
