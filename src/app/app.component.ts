@@ -14,17 +14,17 @@ export class AppComponent {
 
   constructor(){
     this.letovi = [
-      new Let ("Nikola Tesla", "B123", "Pariz", "27/11/2022 12:15", "27/11/2022 15:15"),
-      new Let ("Konstantin Veliki", "N523", "Atina", "12/07/2022 17:15", "27/11/2022 19:25"),
-      new Let ("Nikola Tesla", "B742", "Rim", "12/07/2022 18:15", "27/11/2022 19:55")
+      new Let ("Nikola Tesla", "B123", "Pariz", "27/11/2022 12:15", "27/11/2022 15:15", false, false, true),
+      new Let ("Konstantin Veliki", "N523", "Atina", "12/07/2022 17:15", "27/11/2022 19:25", false, true, true),
+      new Let ("Nikola Tesla", "B742", "Rim", "12/07/2022 18:15", "27/11/2022 19:55", false, false, true)
     ];
   }
   
 
-  dodajLet(aerodrom:HTMLInputElement, sifraLeta:HTMLInputElement, destinacija:HTMLInputElement, polazak:HTMLInputElement, dolazak:HTMLInputElement): boolean {
+  dodajLet(leet:Let): void {
     
-    this.letovi.push(new Let(aerodrom.value, sifraLeta.value, destinacija.value, polazak.value, dolazak.value))
-    return false;
+    this.letovi.push(leet);
+
   }
 
 

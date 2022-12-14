@@ -1,0 +1,66 @@
+<div class="col-xl-6 col-lg-8 col-md-9 col-11 mx-auto mt-5 text-center">
+    <div class="card">
+        <h5 class="text-center mb-4">Dodavanje novog leta</h5>
+        <form [formGroup]="forma" class="row g-3" (ngSubmit)="onSubmit()">
+            <div class="form-group col-md-4">
+                <label for="aerodrom">Polazni aerodrom</label>
+                <input type="text" class="form-control" id="aerodrom" placeholder="Polazni Aerodrom"
+                    [formControl]="$any(forma.controls['aerodrom'])" #aerodrom>
+                <div *ngIf="forma.controls['aerodrom'].touched && !forma.controls['aerodrom'].valid"
+                    class="text-danger"><small>Ovo polje ne može biti prazno!</small></div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="sifraLeta">Šifra leta</label>
+                <input type="text" class="form-control" id="sifraLeta" placeholder="Šifra leta"
+                    [formControl]="$any(forma.controls['sifraLeta'])" #sifraLeta>
+                <div *ngIf="forma.controls['sifraLeta'].touched && !forma.controls['sifraLeta'].valid"
+                    class="text-danger"><small>Šifra leta mora da ima 4 karaktera!</small></div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="destinacija">Destinacija</label>
+                <input type="text" class="form-control" id="destinacija" placeholder="Destinacija"
+                    [formControl]="$any(forma.controls['destinacija'])" #destinacija>
+                <div *ngIf="forma.controls['destinacija'].touched && !forma.controls['destinacija'].valid"
+                    class="text-danger"><small>Ovo polje ne može biti prazno!</small></div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="polazak">Vreme polaska</label>
+                <input type="datetime-local" class="form-control" id="polazak" placeholder="Vreme polaska"
+                    [formControl]="$any(forma.controls['polazak'])" #polazak>
+                <div *ngIf="forma.controls['polazak'].touched && !forma.controls['polazak'].valid" class="text-danger">
+                    <small>Ovo polje ne može biti prazno!</small></div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="dolazak">Očekivano vreme dolaska</label>
+                <input type="datetime-local" class="form-control" id="dolazak" placeholder="Vreme dolaska"
+                    [formControl]="$any(forma.controls['dolazak'])" #dolazak>
+                <div *ngIf="forma.controls['dolazak'].touched && !forma.controls['dolazak'].valid" class="text-danger">
+                    <small>Ovo polje ne može biti prazno!</small></div>
+            </div>
+
+                <h6 class="text-center">Dodatno</h6>
+
+                <div class="form-group col-md-4">
+                    <input (click)="biznisKlik()" class="form-check-input" type="checkbox" id="biznisKlasa" [formControl]="$any(forma.controls['biznisKlasa'])">
+                    <label for="biznisKlasa" class="px-2">Biznis klasa</label>
+                    <div class="text-primary" *ngIf="biznis==true"><small>Cena se uvećava za 50%!</small></div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <input (click)="hranaKlik()" class="form-check-input" type="checkbox" id="gratisHrana" [formControl]="$any(forma.controls['gratisHrana'])">
+                    <label for="gratisHrana" class="px-2">Gratis hrana</label>
+                    <div class="text-primary" *ngIf="hrana==true"><small>Cena se uvećava za 1500 dinara!</small></div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <input class="form-check-input" type="checkbox" id="direktanLet" [formControl]="$any(forma.controls['direktanLet'])">
+                    <label for="direktanLet" class="px-2">Direktan let</label>
+                </div>
+
+           
+            <div class="col-12">
+                <button type="submit" [disabled]="!forma.valid" class="btn btn-primary">Potvrdi</button>
+            </div>
+        </form>
+    </div>
+</div>
