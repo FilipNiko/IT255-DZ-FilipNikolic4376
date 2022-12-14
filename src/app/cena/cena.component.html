@@ -1,0 +1,22 @@
+<div class="col-xl-6 col-lg-8 col-md-9 col-11 mx-auto mt-5 text-center">
+    <div class="card">
+        <h5 class="text-center mb-4">Izračunaj cenu letova</h5>
+        <form [formGroup]="forma" class="row g-3" (ngSubmit)="onSubmit()">
+            <div class="form-group col-md-12">
+                <label for="brojLetova">Broj letova</label>
+                <input type="text" class="form-control" id="brojLetova" placeholder="Broj letova"
+                    [formControl]="$any(forma.controls['brojLetova'])">
+                <div *ngIf="forma.controls['brojLetova'].touched && !forma.controls['brojLetova'].valid"
+                    class="text-danger"><small>Morate uneti validan broj!</small></div>
+            </div>
+            <div *ngIf="cena!=null" class="text-primary">
+                Cena za {{brLetova}} letova je {{cena}} dinara!
+            </div>
+            <div class="col-12">
+                <button type="submit" [disabled]="!forma.valid" class="btn btn-primary">Potvrdi</button>
+            </div>
+        </form>
+
+
+    </div>
+</div>

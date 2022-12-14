@@ -10,6 +10,8 @@ import { PreporukaComponent } from './preporuka/preporuka.component';
 import { ONamaComponent } from './o-nama/o-nama.component';
 import { PonudaComponent } from './ponuda/ponuda.component';
 import { FormaComponent } from './forma/forma.component';
+import { FlightServiceService } from './services/flight-service.service';
+import { CenaComponent } from './cena/cena.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,14 @@ import { FormaComponent } from './forma/forma.component';
     ONamaComponent,
     PonudaComponent,
     FormaComponent,
+    CenaComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [FlightServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
