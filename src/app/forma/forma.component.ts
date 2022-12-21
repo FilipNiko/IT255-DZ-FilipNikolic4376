@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Let } from '../let/let.model';
+import { CrudServiceService } from '../services/crud-service.service';
 
 @Component({
   selector: 'app-forma',
@@ -17,7 +18,7 @@ export class FormaComponent {
  
 
 
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder, private crudService: CrudServiceService) {
     this.forma = fb.group({
       "aerodrom": ['', Validators.required],
       "sifraLeta": ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(4)])],

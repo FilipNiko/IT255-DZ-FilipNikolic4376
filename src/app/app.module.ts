@@ -12,6 +12,8 @@ import { PonudaComponent } from './ponuda/ponuda.component';
 import { FormaComponent } from './forma/forma.component';
 import { FlightServiceService } from './services/flight-service.service';
 import { CenaComponent } from './cena/cena.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CrudServiceService } from './services/crud-service.service';
 
 @NgModule({
   declarations: [
@@ -27,9 +29,10 @@ import { CenaComponent } from './cena/cena.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [FlightServiceService],
+  providers: [FlightServiceService, CrudServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Let } from '../let/let.model';
+
 
 @Component({
   selector: 'app-ponuda',
@@ -9,6 +10,21 @@ import { Let } from '../let/let.model';
 export class PonudaComponent {
 
   @Input() listaLetova: Let[];
+  @Output() deleteEmit: EventEmitter<Let> = new EventEmitter;
+  @Output() updateEmit: EventEmitter<Let> = new EventEmitter;
+ 
+constructor (){}
+
+deleteFlight(leet:Let){
+  this.deleteEmit.emit(leet);
+    
+}
+
+updateFlight(leet:Let){
+  this.updateEmit.emit(leet);
+    
+}
+ 
 
 }
 

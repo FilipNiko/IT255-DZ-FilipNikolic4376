@@ -9,6 +9,7 @@ import {Let} from './let.model';
 export class LetRowComponent {
 
   @Input() leet: Let
+
 }
 
 

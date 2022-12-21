@@ -1,0 +1,37 @@
+{
+  "letovi": [
+    {
+      "id": 1,
+      "aerodrom": "Nikola Tesla",
+      "sifra": "B123",
+      "destinacija": "Pariz",
+      "polazak": "27/11/2022 12:15",
+      "dolazak": "27/11/2022 15:15",
+      "biznisKlasa": false,
+      "gratisHrana": false,
+      "direktanLet": true
+    },
+    {
+      "id": 2,
+      "aerodrom": "Konstantin Veliki",
+      "sifra": "N523",
+      "destinacija": "Atina",
+      "polazak": "12/07/2022 17:15",
+      "dolazak": "27/11/2022 19:25",
+      "biznisKlasa": false,
+      "gratisHrana": true,
+      "direktanLet": true
+    },
+    {
+      "id": 3,
+      "aerodrom": "Nikola Tesla",
+      "sifra": "B742",
+      "destinacija": "Rim",
+      "polazak": "12/07/2022 18:15",
+      "dolazak": "27/11/2022 19:55",
+      "biznisKlasa": false,
+      "gratisHrana": false,
+      "direktanLet": true
+    }
+  ]
+}

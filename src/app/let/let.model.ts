@@ -1,4 +1,5 @@
 export class Let {
+    id: number;
     aerodrom: string;
     sifra: string;
     destinacija: string;
