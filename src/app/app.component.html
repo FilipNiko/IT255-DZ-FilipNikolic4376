@@ -1,73 +1,7 @@
 <app-forma (letEmit)="dodajLet($event)"></app-forma>
 
 <div class="col-xl-6 col-lg-8 col-md-9 col-11 mx-auto mt-5">
-  <app-nav-tabs (ponudaEmitovanje) = "prikaziPonuda()" (preporukaEmitovanje) = "prikaziPreporuka()" (oNamaEmitovanje) = "prikaziONama()"></app-nav-tabs>
-  <app-o-nama *ngIf = "oNama"></app-o-nama>
-  <app-preporuka *ngIf = "preporuka" [listaLetova]="letovi"></app-preporuka>
-  <app-ponuda (deleteEmit) = "deleteFlight($event)" (updateEmit)="updateFlight($event)" *ngIf = "ponuda" [listaLetova]="letovi"></app-ponuda>
-  <app-cena></app-cena>
+  <app-nav-tabs ></app-nav-tabs>
+  <router-outlet></router-outlet>
 </div>
 
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Izmena Leta</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="forma" class="row g-3" >
-          <div class="form-group col-md-4">
-              <label for="aerodrom">Polazni aerodrom</label>
-              <input type="text" class="form-control" id="aerodrom" placeholder="Polazni Aerodrom"
-                  [formControl]="$any(forma.controls['aerodrom'])" #aerodrom>
-          </div>
-          <div class="form-group col-md-4">
-              <label for="sifraLeta">Šifra leta</label>
-              <input type="text" class="form-control" id="sifraLeta" placeholder="Šifra leta"
-                  [formControl]="$any(forma.controls['sifraLeta'])" #sifraLeta>
-          </div>
-          <div class="form-group col-md-4">
-              <label for="destinacija">Destinacija</label>
-              <input type="text" class="form-control" id="destinacija" placeholder="Destinacija"
-                  [formControl]="$any(forma.controls['destinacija'])" #destinacija>
-          </div>
-          <div class="form-group col-md-6">
-              <label for="polazak">Vreme polaska</label>
-              <input type="datetime-local" class="form-control" id="polazak" placeholder="Vreme polaska"
-                  [formControl]="$any(forma.controls['polazak'])" #polazak>
-          </div>
-          <div class="form-group col-md-6">
-              <label for="dolazak">Očekivano vreme dolaska</label>
-              <input type="datetime-local" class="form-control" id="dolazak" placeholder="Vreme dolaska"
-                  [formControl]="$any(forma.controls['dolazak'])" #dolazak>
-          </div>
-
-              <h6 class="text-center">Dodatno</h6>
-
-              <div class="form-group col-md-4">
-                  <input class="form-check-input" type="checkbox" id="biznisKlasa" [formControl]="$any(forma.controls['biznisKlasa'])">
-                  <label for="biznisKlasa" class="px-2">Biznis klasa</label>
-              </div>
-
-              <div class="form-group col-md-4">
-                  <input  class="form-check-input" type="checkbox" id="gratisHrana" [formControl]="$any(forma.controls['gratisHrana'])">
-                  <label for="gratisHrana" class="px-2">Gratis hrana</label>
-              </div>
-
-              <div class="form-group col-md-4">
-                  <input class="form-check-input" type="checkbox" id="direktanLet" [formControl]="$any(forma.controls['direktanLet'])">
-                  <label for="direktanLet" class="px-2">Direktan let</label>
-              </div>
-      </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" (click) = "izmeniLet()" class="btn btn-primary">Izmeni</button>
-      </div>
-    </div>
-  </div>
-</div>

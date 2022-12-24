@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Let } from '../let/let.model';
+import { DataServiceService } from '../services/data-service.service';
 
 @Component({
   selector: 'app-preporuka',
@@ -8,13 +9,19 @@ import { Let } from '../let/let.model';
 })
 export class PreporukaComponent {
 
-  @Input() listaLetova: Let[];
+  listaLetova: Let[];
+
+  constructor(private dataService: DataServiceService) { }
+
+  ngOnInit() {
+    this.dataService.currentMEssage.subscribe(listaLetova => this.listaLetova = listaLetova);
+  }
 
 
-  filterLetova(aerodrom:string) :Let[]{
-   var filterLista : Let[] = [];
-    for (var leet of this.listaLetova){
-      if (leet.aerodrom== aerodrom){
+  filterLetova(aerodrom: string): Let[] {
+    var filterLista: Let[] = [];
+    for (var leet of this.listaLetova) {
+      if (leet.aerodrom == aerodrom) {
         filterLista.push(leet);
       }
     }

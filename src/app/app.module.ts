@@ -14,6 +14,7 @@ import { FlightServiceService } from './services/flight-service.service';
 import { CenaComponent } from './cena/cena.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CrudServiceService } from './services/crud-service.service';
+import { DataServiceService } from './services/data-service.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { CrudServiceService } from './services/crud-service.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [FlightServiceService, CrudServiceService],
+  providers: [FlightServiceService, CrudServiceService, DataServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
