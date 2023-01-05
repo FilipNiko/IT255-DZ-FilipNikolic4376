@@ -6,15 +6,15 @@ import { Let } from '../let/let.model';
   providedIn: 'root'
 })
 export class DataServiceService {
-
+  //DZ12
   private messageSource = new BehaviorSubject<Let[]>([]);
-  currentMEssage=  this.messageSource.asObservable();
+  currentMEssage = this.messageSource.asObservable();
 
   constructor() { }
 
-  
 
-  changeMessage(letovi:Let[]){
+
+  changeMessage(letovi: Let[]) {
     this.messageSource.next(letovi);
   }
 }

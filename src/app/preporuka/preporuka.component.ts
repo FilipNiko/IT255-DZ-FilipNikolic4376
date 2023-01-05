@@ -13,6 +13,7 @@ export class PreporukaComponent {
 
   constructor(private dataService: DataServiceService) { }
 
+  //DZ12
   ngOnInit() {
     this.dataService.currentMEssage.subscribe(listaLetova => this.listaLetova = listaLetova);
   }
