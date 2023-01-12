@@ -3,6 +3,8 @@ import { Let } from '../let/let.model';
 import { DataServiceService } from '../services/data-service.service';
 import { CrudServiceService } from '../services/crud-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { dodajRezervaciju } from '../state/letovi/letovi.actions';
 
 
 @Component({
@@ -16,7 +18,7 @@ export class PonudaComponent {
   id: number;
   listaLetova: Let[];
 
-  constructor(private dataService: DataServiceService, private crudService: CrudServiceService, fb: FormBuilder) {
+  constructor(private dataService: DataServiceService, private crudService: CrudServiceService, fb: FormBuilder, private store: Store) {
 
     this.forma = fb.group({
       "aerodrom": ['', Validators.required],
@@ -105,6 +107,10 @@ export class PonudaComponent {
 
   }
 
+
+  rezervisiSediste(leet: Let) {
+    this.store.dispatch(dodajRezervaciju(leet));
+  }
 
 }
 

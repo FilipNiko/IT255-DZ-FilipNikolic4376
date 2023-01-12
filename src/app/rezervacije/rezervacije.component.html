@@ -1,0 +1,33 @@
+<h4 class="text-center text-primary mt-5">Lista Rezervacija</h4>
+<table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Šifra leta</th>
+        <th>Polazni aerodrom</th>
+        <th>Destinacija</th>
+        <th>Vreme polaska</th>
+        <th>Očekivano vreme dolaska</th>
+        <th>Biznis klasa</th>
+        <th>Gratis hrana</th>
+        <th>Direktan</th>
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let leet of (rezervacijeUnosi$ | async)">
+        <th>{{leet.sifra}}</th>
+        <td>{{leet.aerodrom}}</td>
+        <td>{{leet.destinacija}}</td>
+        <td>{{leet.polazak}}</td>
+        <td>{{leet.dolazak}}</td>
+        <td>{{leet.biznisKlasa}}</td>
+        <td>{{leet.gratisHrana}}</td>
+        <td>{{leet.direktanLet}}</td>
+        <td>
+          <button (click)="izbrisiRezervaciju(leet)" class="btn btn-danger" type="button">Izbriši</button>
+        </td>
+        <td>
+      </td>
+      </tr>
+    </tbody>
+  </table>

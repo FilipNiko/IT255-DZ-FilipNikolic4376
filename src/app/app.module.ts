@@ -15,6 +15,9 @@ import { CenaComponent } from './cena/cena.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CrudServiceService } from './services/crud-service.service';
 import { DataServiceService } from './services/data-service.service';
+import { StoreModule } from '@ngrx/store';
+import { letoviReducer, metaReducerLocalStorage } from './state/letovi/letovi.reducer';
+import { RezervacijeComponent } from './rezervacije/rezervacije.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +29,14 @@ import { DataServiceService } from './services/data-service.service';
     PonudaComponent,
     FormaComponent,
     CenaComponent,
+    RezervacijeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({ rezervacijeUnosi: letoviReducer },{ metaReducers: [ metaReducerLocalStorage ] }),
   ],
   providers: [FlightServiceService, CrudServiceService, DataServiceService],
   bootstrap: [AppComponent]

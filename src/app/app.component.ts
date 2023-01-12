@@ -3,6 +3,9 @@ import { Let } from './let/let.model';
 import { CrudServiceService } from './services/crud-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataServiceService } from './services/data-service.service';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { selectBrojRezervacija } from './state/letovi/letovi.selector';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,8 +17,11 @@ export class AppComponent {
   forma: FormGroup;
   id: number;
 
-  constructor(private crudService: CrudServiceService, fb: FormBuilder, private dataService: DataServiceService) {
+  brojRezervacija$: Observable<number>;
 
+  constructor(private crudService: CrudServiceService, fb: FormBuilder, private dataService: DataServiceService, private store: Store) {
+
+    this.brojRezervacija$ = store.select(selectBrojRezervacija);
     this.getAllFlights();
 
     this.forma = fb.group({
@@ -55,4 +61,6 @@ export class AppComponent {
       this.letovi.unshift(data);
     })
   }
+
+ 
 }
