@@ -12,6 +12,7 @@ import { selectBrojRezervacija } from './state/letovi/letovi.selector';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  title = 'WizzRyan';
   letovi: Let[];
 
   forma: FormGroup;
